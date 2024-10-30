@@ -8,11 +8,11 @@ public class PresensiStaff extends PresensiMahasiswa {
         this.jamPresensi = jam;
     }
 
-    String getJam() {
+    public String getJam() {
         return this.jamPresensi;
     }
 
-    void setJam(String setJam) {
+    public void setJam(String setJam) {
         this.jamPresensi = setJam;
     }
 

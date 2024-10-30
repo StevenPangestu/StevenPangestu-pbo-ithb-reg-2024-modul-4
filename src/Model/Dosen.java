@@ -29,6 +29,23 @@ public class Dosen extends Staff {
         this.departemen = departemen;
     }
 
+    public int getUnit() {
+
+        int unit = 0;
+
+        for (MatkulAjar matkul : matkulAjar) {
+
+            for (PresensiStaff presensi : matkul.getPresensiStaff()) {
+
+                if (presensi.isHadir().equals("HADIR")) {
+                    unit++;
+                }
+            }
+        }
+
+        return unit;
+    }
+
     @Override
     public String toString() {
         return "Dosen [matkulAjar=" + matkulAjar + ", departemen=" + departemen + ", getNIK()=" + getNIK()

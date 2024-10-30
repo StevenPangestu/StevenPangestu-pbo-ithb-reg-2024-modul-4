@@ -29,6 +29,18 @@ public class Karyawan extends Staff {
         PresensiKaryawan = presensiKaryawan;
     }
 
+    public int getUnit() {
+        int unit = 0;
+
+        for (PresensiStaff presensi : PresensiKaryawan) {
+            if (presensi.isHadir().equals("HADIR")) {
+                unit++;
+            }
+        }
+
+        return unit;
+    }
+
     @Override
     public String toString() {
         return "Karyawan [Salary=" + Salary + ", PresensiKaryawan=" + PresensiKaryawan + ", getNIK()=" + getNIK()

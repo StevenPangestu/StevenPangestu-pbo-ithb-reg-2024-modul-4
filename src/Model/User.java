@@ -10,35 +10,35 @@ public class User {
         this.telepon = tlp;
     }
 
-    void SetName(String newName) {
+    public void SetName(String newName) {
         this.nama = newName;
     }
 
-    String getName() {
+    public String getName() {
         return this.nama;
     }
 
-    void SetAlamat(String newAlamat) {
+    public void SetAlamat(String newAlamat) {
         this.nama = newAlamat;
     }
 
-    String getAlamat() {
+    public String getAlamat() {
         return this.alamat;
     }
 
-    void setTTL(String newTTL) {
+    public void setTTL(String newTTL) {
         this.TTL = newTTL;
     }
 
-    String getTTL() {
+    public String getTTL() {
         return this.TTL;
     }
 
-    void setTelepon(String newTlp) {
+    public void setTelepon(String newTlp) {
         this.telepon = newTlp;
     }
 
-    String getTelepon() {
+    public String getTelepon() {
         return this.telepon;
     }
 

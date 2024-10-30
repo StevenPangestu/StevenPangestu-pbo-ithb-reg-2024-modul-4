@@ -9,19 +9,27 @@ public class Mahasiswa extends User {
         this.NIM = NIM;
     }
 
-    void setJurusan(String newJurusan) {
+    public void setJurusan(String newJurusan) {
         this.jurusan = newJurusan;
     }
 
-    String getJurusan() {
+    public String getJurusan() {
         return jurusan;
     }
 
-    void setNIM(String newNIM) {
+    public void setNIM(String newNIM) {
         this.NIM = newNIM;
     }
 
     public String getNIM() {
         return NIM;
     }
+
+    @Override
+    public String toString() {
+        return "Mahasiswa [jurusan=" + jurusan + ", NIM=" + NIM + ", getName()=" + getName() + ", getJurusan()="
+                + getJurusan() + ", getAlamat()=" + getAlamat() + ", getNIM()=" + getNIM() + ", getTTL()=" + getTTL()
+                + ", getTelepon()=" + getTelepon() + "]";
+    }
+
 }

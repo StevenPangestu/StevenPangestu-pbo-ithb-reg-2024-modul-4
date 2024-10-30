@@ -19,7 +19,7 @@ public class MatkulAjar {
         this.matkul = matkul;
     }
 
-    public List<PresensiStaff> getPresensi() {
+    public List<PresensiStaff> getPresensiStaff() {
         return presensi;
     }
 
@@ -30,7 +30,7 @@ public class MatkulAjar {
     @Override
     public String toString() {
         return "MatkulAjar [matkul=" + matkul + ", presensi=" + presensi + ", getMatkul()=" + getMatkul()
-                + ", getPresensi()=" + getPresensi() + ", getClass()=" + getClass() + "]";
+                + ", getPresensi()=" + getPresensiStaff() + ", getClass()=" + getClass() + "]";
     }
 
 }

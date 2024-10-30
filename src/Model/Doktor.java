@@ -50,7 +50,7 @@ public class Doktor extends Mahasiswa {
         return "Doktor [judulDisertasi=" + judulDisertasi + ", sidang1=" + sidang1 + ", sidang2=" + sidang2
                 + ", sidang3=" + sidang3 + ", getName()=" + getName() + ", getJurusan()=" + getJurusan()
                 + ", getAlamat()=" + getAlamat() + ", getJudulDisertasi()=" + getJudulDisertasi() + ", getNIM()="
-                + getNIM() + ", getTTL()=" + getTTL() + ", getSidang1()=" +     getSidang1() + ", getTelepon()="
+                + getNIM() + ", getTTL()=" + getTTL() + ", getSidang1()=" + getSidang1() + ", getTelepon()="
                 + getTelepon() + ", getSidang2()=" + getSidang2() + ", getSidang3()=" + getSidang3() + "]";
     }
 
