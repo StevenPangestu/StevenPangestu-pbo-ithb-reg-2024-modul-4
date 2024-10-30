@@ -23,61 +23,102 @@ public class Controller {
 
     public String NilaiAkhir(String NIM, String kodeMK) {
 
-        for (User user2 : users) {
-            if (users instanceof Mahasiswa) {
-                Mahasiswa mhs = (Mahasiswa) user2;
-                if (mhs.getNIM().equals(NIM)) {
-                    if (mhs instanceof Sarjana) {
-                        Sarjana mhsSarjana = (Sarjana) mhs;
+        for (User user : users) {
 
-                        for (MatkulAmbil matkulAmbil : mhsSarjana.getListAmbil()) {
-                            if (matkulAmbil.getMatkul().getKode() == kodeMK) {
-                                double NA = (matkulAmbil.getN1() + matkulAmbil.getN2() + matkulAmbil.getN3()) / 3.0;
-                                return "Nilai Akhir : " + NA;
+            if (user instanceof Mahasiswa) {
+
+                Mahasiswa mahasiswa = (Mahasiswa) user;
+
+                if (mahasiswa.getNIM().equals(NIM)) {
+
+                    if (mahasiswa instanceof Sarjana) {
+
+                        Sarjana sarjana = (Sarjana) mahasiswa;
+
+                        for (MatkulAmbil matkulAmbil : sarjana.getListAmbil()) {
+
+                            if (matkulAmbil.getMatkul().getKode().equals(kodeMK)) {
+
+                                double nilaiAkhir = (matkulAmbil.getN1() + matkulAmbil.getN2() + matkulAmbil.getN3())
+                                        / 3.0;
+
+                                return "Nilai Akhir: " + nilaiAkhir;
+
                             }
+
                         }
-                    } else if (mhs instanceof Doktor) {
-                        Doktor mhsDoktor = (Doktor) mhs;
-                        return "Nilai Akhir : "
-                                + (mhsDoktor.getSidang1() + mhsDoktor.getSidang2() + mhsDoktor.getSidang3()) / 3.0;
+
+                    } else if (mahasiswa instanceof Doktor) {
+
+                        Doktor doktor = (Doktor) mahasiswa;
+
+                        double nilaiAkhir = (doktor.getSidang1() + doktor.getSidang2() + doktor.getSidang3()) / 3.0;
+
+                        return "Nilai Akhir: " + nilaiAkhir;
+
                     }
+
                 }
+
             }
 
         }
+
         return "User tidak ada";
+
     }
 
-    public String NilaiRata(String kodeMK) {
+    public String printRataRataNilaiAkhir(String kodeMK) {
+
         double totalNilai = 0;
-        int bykMhs = 0;
+        int jumlahMahasiswa = 0;
 
         for (User user : users) {
+
             if (user instanceof Mahasiswa) {
-                Mahasiswa mhs = (Mahasiswa) users;
-                if (mhs instanceof Sarjana) {
-                    Sarjana mhSarjana = (Sarjana) mhs;
 
-                    for (MatkulAmbil matkul : mhSarjana.getListAmbil()) {
-                        if (matkul.getMatkul().getKode().equals(kodeMK)) {
-                            totalNilai += (matkul.getN1() + matkul.getN2() + matkul.getN3()) / 3.0;
-                            bykMhs++;
+                Mahasiswa mahasiswa = (Mahasiswa) user;
+
+                if (mahasiswa instanceof Sarjana) {
+
+                    Sarjana sarjana = (Sarjana) mahasiswa;
+
+                    for (MatkulAmbil matkulAmbil : sarjana.getListAmbil()) {
+
+                        if (matkulAmbil.getMatkul().getKode().equals(kodeMK)) {
+
+                            totalNilai += (matkulAmbil.getN1() + matkulAmbil.getN2() + matkulAmbil.getN3()) / 3.0;
+                            jumlahMahasiswa++;
+
                         }
-                    }
-                } else if (mhs instanceof Doktor) {
-                    Doktor mhsDoktor = (Doktor) mhs;
 
-                    totalNilai += (mhsDoktor.getSidang1() + mhsDoktor.getSidang2() + mhsDoktor.getSidang3()) / 3.0;
-                    bykMhs++;
+                    }
+
+                } else if (mahasiswa instanceof Doktor) {
+
+                    Doktor doktor = (Doktor) mahasiswa;
+
+                    totalNilai += (doktor.getSidang1() + doktor.getSidang2() + doktor.getSidang3())
+                            / 3.0;
+
+                    jumlahMahasiswa++;
+
                 }
+
             }
+
         }
-        if (bykMhs == 0) {
-            return "Tidak ada mahasiswa";
-        } else {
-            double rataRata = totalNilai / bykMhs;
-            return "Rata Rata NA : " + rataRata;
+
+        if (jumlahMahasiswa == 0) {
+
+            return "Tidak ada mahasiswa yang mengambil matkul ini";
+
         }
+
+        double rataRata = totalNilai / jumlahMahasiswa;
+
+        return "Rata-Rata Nilai Akhir: " + rataRata;
+
     }
 
     public String bykMhsTidakLulus(String kodeMK) {

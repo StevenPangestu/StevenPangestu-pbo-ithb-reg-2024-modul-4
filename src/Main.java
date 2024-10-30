@@ -1,13 +1,13 @@
 import java.util.*;
+import View.*;
 import Model.*;
 import Controller.*;
 
 public class Main {
         public static void main(String[] args) {
-                Scanner scn = new Scanner(System.in);
 
-                Matakuliah matkul1 = new Matakuliah("MK-001", "Algoritma", 3);
-                Matakuliah matkul2 = new MatkulPilihan("MK-002", "Artificial Inteligence", 3, 5);
+                Matakuliah matkul1 = new Matakuliah("MK01", "Algoritma", 3);
+                Matakuliah matkul2 = new MatkulPilihan("MK02", "Artificial Inteligence", 3, 5);
 
                 PresensiMahasiswa presensi1 = new PresensiMahasiswa("2024-01-01", 0);
                 PresensiMahasiswa presensi2 = new PresensiMahasiswa("2024-01-02", 1);
@@ -18,7 +18,7 @@ public class Main {
                 List<MatkulAmbil> matkulAmbilList = new ArrayList<>(Arrays.asList(matkulAmbil1, matkulAmbil2));
 
                 Sarjana mhsSarjana = new Sarjana("Alfons", "Bandung", "2005-01-01", "08123456789",
-                                "Informatika", "1123099", matkulAmbilList);
+                                "Informatika", "12345678", matkulAmbilList);
                 Magister mhsMagister = new Magister("Luis", "Bandung", "2099-01-01", "08123456780",
                                 "Sistem Informasi", "1123077", matkulAmbilList, "AI in Healthcare");
                 Doktor mhsDoktor = new Doktor("Mario", "Jakarta", "3090-02-09", "08213123123", "Infomatika", "1123028",
@@ -31,7 +31,7 @@ public class Main {
 
                 DosenTetap dosenTetap = new DosenTetap("Dosen Tetap 1", "Surabaya", "1975-01-01", "08123456781",
                                 "NIK001",
-                                matkulAjarList, "Informatika", 10000000);
+                                matkulAjarList, "Informatika", 100000);
                 DosenHonorer dosenHonorer = new DosenHonorer("Dosen Honor 1", "Yogyakarta", "1980-01-01", "08123456782",
                                 "NIK002", matkulAjarList, "Sistem Informasi", 300000);
 
@@ -46,12 +46,9 @@ public class Main {
                 users.add(karyawan);
                 users.add(mhsDoktor);
 
-                System.out.println("cari");
-                String cari = scn.next();
-
                 Controller controller = new Controller(users);
 
-                System.out.println(controller.printData(cari));
-
+                view view = new view(controller);
+                view.showMenu();
         }
 }
